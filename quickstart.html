@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quickstart &mdash; BioCypher  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/design-tabs.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Adapters" href="adapters.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="contents.html" class="icon icon-home">
+            BioCypher
+          </a>
+              <div class="version">
+                0.5.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get-involved.html">Get Involved!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#configuration">Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-host-module-adapter">The host module adapter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-schema-configuration-yaml-file">The schema configuration YAML file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="adapters.html">Adapters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">BioCypher Tutorial - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-ontology.html">BioCypher Tutorial - Handling Ontologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-adapter.html">BioCypher Tutorial - Adapters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo4j.html">Interacting with Neo4j</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo4j.html#tutorial-neo4j">Tutorial - Neo4j</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submodule.html">Submodule documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">BioCypher</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/quickstart.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h1>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover sd-text-center docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Already familiar? Here’s a template:</div>
+<p class="sd-card-text"><svg version="1.1" width="3.0em" height="3.0em" class="sd-octicon sd-octicon-mark-github" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg> <svg version="1.1" width="3.0em" height="3.0em" class="sd-octicon sd-octicon-repo" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M3 2.75A2.75 2.75 0 015.75 0h14.5a.75.75 0 01.75.75v20.5a.75.75 0 01-.75.75h-6a.75.75 0 010-1.5h5.25v-4H6A1.5 1.5 0 004.5 18v.75c0 .716.43 1.334 1.05 1.605a.75.75 0 01-.6 1.374A3.25 3.25 0 013 18.75v-16zM19.5 1.5V15H6c-.546 0-1.059.146-1.5.401V2.75c0-.69.56-1.25 1.25-1.25H19.5z"></path><path d="M7 18.25a.25.25 0 01.25-.25h5a.25.25 0 01.25.25v5.01a.25.25 0 01-.397.201l-2.206-1.604a.25.25 0 00-.294 0L7.397 23.46a.25.25 0 01-.397-.2v-5.01z"></path></svg> <svg version="1.1" width="3.0em" height="3.0em" class="sd-octicon sd-octicon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 15.584V8.416a.5.5 0 01.77-.42l5.576 3.583a.5.5 0 010 .842l-5.576 3.584a.5.5 0 01-.77-.42z"></path><path fill-rule="evenodd" d="M12 2.5a9.5 9.5 0 100 19 9.5 9.5 0 000-19zM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12z"></path></svg> <svg version="1.1" width="3.0em" height="3.0em" class="sd-octicon sd-octicon-container" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M13.152.682a2.25 2.25 0 012.269 0l.007.004 6.957 4.276a2.276 2.276 0 011.126 1.964v7.516c0 .81-.432 1.56-1.133 1.968l-.002.001-11.964 7.037-.004.003a2.276 2.276 0 01-2.284 0l-.026-.015-6.503-4.502a2.268 2.268 0 01-1.096-1.943V9.438c0-.392.1-.77.284-1.1l.003-.006.014-.026a2.28 2.28 0 01.82-.827h.002L13.152.681zm.757 1.295h-.001L2.648 8.616l6.248 4.247a.776.776 0 00.758-.01h.001l11.633-6.804-6.629-4.074a.75.75 0 00-.75.003zM18 9.709l-3.25 1.9v7.548L18 17.245V9.709zm1.5-.878v7.532l2.124-1.25a.777.777 0 00.387-.671V7.363L19.5 8.831zm-9.09 5.316l2.84-1.66v7.552l-3.233 1.902v-7.612c.134-.047.265-.107.391-.18l.002-.002zm-1.893 7.754V14.33a2.277 2.277 0 01-.393-.18l-.023-.014-6.102-4.147v7.003c0 .275.145.528.379.664l.025.014 6.114 4.232z"></path></svg></p>
+</div>
+<a class="sd-stretched-link reference external" href="https://github.com/saezlab/biocypher-project-template"></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover sd-text-center docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+New to BioCypher? Follow the tutorial:</div>
+<p class="sd-card-text"><svg version="1.1" width="3.0em" height="3.0em" class="sd-octicon sd-octicon-package" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.876.64a1.75 1.75 0 00-1.75 0l-8.25 4.762a1.75 1.75 0 00-.875 1.515v9.525c0 .625.334 1.203.875 1.515l8.25 4.763a1.75 1.75 0 001.75 0l8.25-4.762a1.75 1.75 0 00.875-1.516V6.917a1.75 1.75 0 00-.875-1.515L12.876.639zm-1 1.298a.25.25 0 01.25 0l7.625 4.402-7.75 4.474-7.75-4.474 7.625-4.402zM3.501 7.64v8.803c0 .09.048.172.125.216l7.625 4.402v-8.947L3.501 7.64zm9.25 13.421l7.625-4.402a.25.25 0 00.125-.216V7.639l-7.75 4.474v8.947z"></path></svg> <svg version="1.1" width="3.0em" height="3.0em" class="sd-octicon sd-octicon-question" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.97 8.265a1.45 1.45 0 00-.487.57.75.75 0 01-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 011.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 00-.435.409v1.37a.75.75 0 11-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 00-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265zM13 17a1 1 0 11-2 0 1 1 0 012 0z"></path><path fill-rule="evenodd" d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zM2.5 12a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z"></path></svg> <svg version="1.1" width="3.0em" height="3.0em" class="sd-octicon sd-octicon-checklist" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 3.75a.25.25 0 01.25-.25h13.5a.25.25 0 01.25.25v10a.75.75 0 001.5 0v-10A1.75 1.75 0 0017.25 2H3.75A1.75 1.75 0 002 3.75v16.5c0 .966.784 1.75 1.75 1.75h7a.75.75 0 000-1.5h-7a.25.25 0 01-.25-.25V3.75z"></path><path d="M6.25 7a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm-.75 4.75a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75zm16.28 4.53a.75.75 0 10-1.06-1.06l-4.97 4.97-1.97-1.97a.75.75 0 10-1.06 1.06l2.5 2.5a.75.75 0 001.06 0l5.5-5.5z"></path></svg> <svg version="1.1" width="3.0em" height="3.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2.5c-3.81 0-6.5 2.743-6.5 6.119 0 1.536.632 2.572 1.425 3.56.172.215.347.422.527.635l.096.112c.21.25.427.508.63.774.404.531.783 1.128.995 1.834a.75.75 0 01-1.436.432c-.138-.46-.397-.89-.753-1.357a18.354 18.354 0 00-.582-.714l-.092-.11c-.18-.212-.37-.436-.555-.667C4.87 12.016 4 10.651 4 8.618 4 4.363 7.415 1 12 1s8 3.362 8 7.619c0 2.032-.87 3.397-1.755 4.5-.185.23-.375.454-.555.667l-.092.109c-.21.248-.405.481-.582.714-.356.467-.615.898-.753 1.357a.75.75 0 01-1.437-.432c.213-.706.592-1.303.997-1.834.202-.266.419-.524.63-.774l.095-.112c.18-.213.355-.42.527-.634.793-.99 1.425-2.025 1.425-3.561C18.5 5.243 15.81 2.5 12 2.5zM9.5 21.75a.75.75 0 01.75-.75h3.5a.75.75 0 010 1.5h-3.5a.75.75 0 01-.75-.75zM8.75 18a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z"></path></svg></p>
+</div>
+<a class="sd-stretched-link reference internal" href="tutorial.html#tutorial"><span class="std std-ref"></span></a></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you already know how BioCypher works, we provide here a quickstart into the
+knowledge graph build process. We provide a template repository on GitHub, which
+you can use to get started with your own project.  You can get it
+<a class="reference external" href="https://github.com/saezlab/biocypher-project-template">here</a>.  To set up a new
+project, simply follow the instructions in the README.</p>
+<p>If you are new to BioCypher and would like a step-by-step introduction to the
+package, please follow the <a class="reference internal" href="tutorial.html#tutorial"><span class="std std-ref">tutorial</span></a>.</p>
+</div>
+<p>The BioCypher workflow of creating your own knowledge graph consists of two
+components:</p>
+<ol class="arabic simple">
+<li><p>the <a class="reference internal" href="#qs-host-module-adapter"><span class="std std-ref">host module adapter</span></a>, a python
+program, and</p></li>
+<li><p>the <a class="reference internal" href="#qs-schema-config"><span class="std std-ref">schema configuration file</span></a>, a YAML file.</p></li>
+</ol>
+<p>The adapter serves as a data interface between the source and BioCypher,
+piping the “raw” data into BioCypher for the creation of the property
+graph, while the schema configuration tells BioCypher how the graph
+should be structured, detailing the names of constituents and how they
+should be connected.</p>
+<section id="the-host-module-adapter">
+<span id="qs-host-module-adapter"></span><h2>The host module adapter<a class="headerlink" href="#the-host-module-adapter" title="Permalink to this heading"></a></h2>
+<p>BioCypher follows a modular approach to data inputs; to create a knowledge
+graph, we use at least one adapter module that provides a data stream to build
+the graph from. Examples for current adapters can be found on the <a class="reference external" href="https://github.com/orgs/saezlab/projects/5/views/6">GitHub
+project adapter view</a>.
+Adapters can ingest data from many different input sources, including Python
+modules as in the <a class="reference external" href="https://github.com/HUBioDataLab/CROssBAR-BioCypher-Migration">CROssBAR
+adapter</a> (which
+uses the OmniPath backend software, PyPath, for downloading and caching data),
+advanced file management formats such as Parquet as in the <a class="reference external" href="https://github.com/saezlab/OTAR-BioCypher">Open Targets
+adapter</a>, or simple CSV files as in
+the <a class="reference external" href="https://github.com/saezlab/DepMap-BioCypher">Dependency Map adapter</a>.</p>
+<p>The recommended way of interacting with BioCypher is via the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">biocypher._driver.Driver</span></code> class. It can be called either starting
+in “offline mode” using <code class="docutils literal notranslate"><span class="pre">offline</span> <span class="pre">=</span> <span class="pre">True</span></code>, i.e., without connection to a running
+Neo4j instance, or by providing authentication details via arguments or
+configuration file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">biocypher</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">biocypher</span><span class="o">.</span><span class="n">Driver</span><span class="p">(</span>
+  <span class="n">offline</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+  <span class="n">db_uri</span> <span class="o">=</span> <span class="s2">&quot;bolt://localhost:7687&quot;</span><span class="p">,</span>
+  <span class="n">db_user</span> <span class="o">=</span> <span class="s2">&quot;neo4j&quot;</span><span class="p">,</span>
+  <span class="n">db_passwd</span> <span class="o">=</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We use the APOC library for Neo4j, which is not included automatically, but
+needs to be installed as a plugin to the DMBS. For more information, please
+refer to the <a class="reference external" href="https://neo4j.com/labs/apoc/">APOC documentation</a>.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The settings for the BioCypher driver can also be specified in a configuration
+file. For more details, please refer to the <a class="reference internal" href="installation.html#config"><span class="std std-ref">Setup instructions</span></a>.</p>
+</div>
+<p>The main function of the adapter is to pass data into BioCypher, usually
+as some form of iterable (commonly a list or generator of items). As a
+minimal example, we load a list of proteins with identifiers, trivial
+names, and molecular masses from a (fictional) CSV:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># read into data frame</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">proteins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># yield proteins from data frame</span>
+<span class="k">def</span> <span class="nf">node_generator</span><span class="p">():</span>
+  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">proteins</span><span class="p">:</span>
+    <span class="n">_id</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;uniprot_id&quot;</span><span class="p">]</span>
+    <span class="n">_type</span> <span class="o">=</span> <span class="s2">&quot;protein&quot;</span>
+    <span class="n">_props</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;trivial_name&quot;</span><span class="p">]</span>
+      <span class="s2">&quot;mm&quot;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;molecular_mass&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">yield</span> <span class="p">(</span><span class="n">_id</span><span class="p">,</span> <span class="n">_type</span><span class="p">,</span> <span class="n">_props</span><span class="p">)</span>
+
+<span class="c1"># write biocypher nodes</span>
+<span class="n">d</span><span class="o">.</span><span class="n">write_nodes</span><span class="p">(</span><span class="n">node_generator</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>For nodes, BioCypher expects a tuple containing three entries; the preferred
+identifier of the node, the type of entity, and a dictionary containing all
+other properties (can be empty). What BioCypher does with the received
+information is determined largely by the schema configuration detailed below.</p>
+<p>For advanced usage, the type of node or edge can be determined
+programatically. Properties do not need to be explicitly called one by
+one; they can be passed in as a complete dictionary of all entries and
+filtered inside BioCypher by detailing the desired properties per node
+type in the schema configuration file.</p>
+</section>
+<section id="the-schema-configuration-yaml-file">
+<span id="qs-schema-config"></span><h2>The schema configuration YAML file<a class="headerlink" href="#the-schema-configuration-yaml-file" title="Permalink to this heading"></a></h2>
+<p>The second important component of translation into a BioCypher-compatible
+property graph is the specification of graph constituents and their mode of
+representation in the graph. For instance, we want to add a representation for
+proteins to the OmniPath graph, and the proteins should be represented as nodes.
+To make this known to the BioCypher module, we use the
+<a class="reference external" href="https://github.com/saezlab/BioCypher/blob/main/biocypher/_config/schema_config.yaml">schema-config.yaml</a>,
+which details <em>only</em> the immediate constituents of the desired graph.  Since the
+identifier systems in the Biolink schema are not comprehensive and offer many
+alternatives, we currently use the CURIE prefixes directly as given by
+<a class="reference external" href="https://bioregistry.io">Bioregistry</a>. For instance, a protein could be
+represented, for instance, by a UniProt identifier, the corresponding ENSEMBL
+identifier, or an HGNC gene symbol. The CURIE prefix for “Uniprot Protein” is
+<code class="docutils literal notranslate"><span class="pre">uniprot</span></code>, so a consistent protein schema definition would be:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">protein</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">represented_as</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span>
+<span class="w">  </span><span class="nt">preferred_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uniprot</span>
+<span class="w">  </span><span class="nt">input_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protein</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For BioCypher classes, similar to the internal representation in the Biolink
+model, we use lower sentence-case notation, e.g., <code class="docutils literal notranslate"><span class="pre">protein</span></code> and <code class="docutils literal notranslate"><span class="pre">small</span> <span class="pre">molecule</span></code>. For file names and Neo4j labels, these are converted to PascalCase.</p>
+</div>
+<p>In the protein case, we are specifying its representation as a node,
+that we wish to use the UniProt identifier as the main identifier for
+proteins, and that proteins in the input coming from <code class="docutils literal notranslate"><span class="pre">PyPath</span></code> carry
+the label <code class="docutils literal notranslate"><span class="pre">protein</span></code> (in lowercase). Should one wish to use ENSEMBL
+notation instead of UniProt, the corresponding CURIE prefix, in this
+case, <code class="docutils literal notranslate"><span class="pre">ensembl</span></code>, can be substituted.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">protein</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">represented_as</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span>
+<span class="w">  </span><span class="nt">preferred_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ensembl</span>
+<span class="w">  </span><span class="nt">input_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protein</span>
+</pre></div>
+</div>
+<p>If there exists no identifier system that is suitable for coverage of
+the data, the standard field <code class="docutils literal notranslate"><span class="pre">id</span></code> can be used; this will not result in
+the creation of a named property that reflects the identifier of each
+node. See below for an example. The <code class="docutils literal notranslate"><span class="pre">preferred_id</span></code> field can in this case also
+be omitted entirely; this will lead to the same outcome (<code class="docutils literal notranslate"><span class="pre">id</span></code>).</p>
+<p>The other slots of a graph constituent entry contain information
+BioCypher needs to receive the input data correctly and construct the
+graph accordingly. For “Named Thing” entities such as the protein, this
+includes the mode of representation (YAML entry <code class="docutils literal notranslate"><span class="pre">represented_as</span></code>),
+which can be <code class="docutils literal notranslate"><span class="pre">node</span></code> or <code class="docutils literal notranslate"><span class="pre">edge</span></code>. Proteins can only feasibly
+represented as nodes, but for other entities, such as interactions or
+aggregates, representation can be both as node or as edge. In Biolink,
+these belong to the super-class
+<a class="reference external" href="https://biolink.github.io/biolink-model/docs/associations.html">Associations</a>.
+For associations, BioCypher additionally requires the specification of
+the source and target of the association; for instance, a
+post-translational interaction occurs between proteins, so the source
+and target attribute in the <code class="docutils literal notranslate"><span class="pre">schema-config.yaml</span></code> will both be
+<code class="docutils literal notranslate"><span class="pre">protein</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">post translational interaction</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">represented_as</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node</span>
+<span class="w">  </span><span class="nt">preferred_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">  </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protein</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protein</span>
+<span class="w">  </span><span class="nt">input_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post_translational</span>
+</pre></div>
+</div>
+<p>For the post-translational interaction, which is an association, we are
+specifying representation as a node (prompting BioCypher to create not
+only the node but also two edges connecting to the proteins
+participating in any particular post-translational interaction). In
+other words, we are reifying the post-translational interaction in order
+to have a node to which other nodes can be linked; for instance, we
+might want to add a publication to a particular interaction to serve as
+source of evidence, which is only possible for nodes in a property
+graph, not for edges.</p>
+<p>Since there are no systematic identifiers for post-translational
+interactions, we concatenate the protein ids and relevant properties of
+the interaction to a new unique id. We prevent creation of a specific
+named property by specifying <code class="docutils literal notranslate"><span class="pre">id</span></code> as the identifier system in this case.
+If a specific property name (in addition to the generic <code class="docutils literal notranslate"><span class="pre">id</span></code> field) is
+desired, one can use any arbitrary string as a designation for this
+identifier, which will then be a named property on the
+<code class="docutils literal notranslate"><span class="pre">PostTranslationalInteraction</span></code> nodes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>BioCypher accepts non-Biolink IDs since not all possible entries possess a
+systematic identifier system, whereas the entity class (<code class="docutils literal notranslate"><span class="pre">protein</span></code>, <code class="docutils literal notranslate"><span class="pre">post</span> <span class="pre">translational</span> <span class="pre">interaction</span></code>) has to be included in the Biolink schema and
+spelled identically. For this reason, we <a class="reference internal" href="tutorial-ontology.html#tutorial-ontology-extension"><span class="std std-ref">extend the Biolink
+schema</span></a> in cases where there exists no entry for
+our entity of choice. Further, we are specifying the source and target classes
+of our association (both <code class="docutils literal notranslate"><span class="pre">protein</span></code>), which are optional, and the label we
+provide in the input from <code class="docutils literal notranslate"><span class="pre">PyPath</span></code> (<code class="docutils literal notranslate"><span class="pre">post_translational</span></code>).</p>
+</div>
+<p>If we wanted the interaction to be represented in the graph as an edge,
+we would also need to supply an additional - arbitrary - property,
+<code class="docutils literal notranslate"><span class="pre">label_as_edge</span></code>, which would be used as the relationship type; this
+could for instance be <code class="docutils literal notranslate"><span class="pre">INTERACTS_POST_TRANSLATIONALLY</span></code>, following the
+property graph database consensus that property graph edges are
+represented in all upper case form and as verbs, to distinguish from
+nodes that are represented in PascalCase and as nouns. This would modify
+the above example to the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">post translational interaction</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">represented_as</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edge</span>
+<span class="w">  </span><span class="nt">preferred_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">  </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protein</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protein</span>
+<span class="w">  </span><span class="nt">input_label</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post_translational</span>
+<span class="w">  </span><span class="nt">label_as_edge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INTERACTS_POST_TRANSLATIONALLY</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adapters.html" class="btn btn-neutral float-right" title="Adapters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021-2023, BioCypher developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
