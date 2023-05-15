@@ -38,7 +38,7 @@
             BioCypher
           </a>
               <div class="version">
-                0.5.6
+                0.5.14
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -51,6 +51,7 @@
               <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-experiences.html">User Experiences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="get-involved.html">Get Involved!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html#configuration">Configuration</a></li>
@@ -171,7 +172,7 @@ nodes as fusion points for all “tail” ontologies. For more info, see the
 useful for debugging and for getting a quick overview of the ontology and which
 parts are actually used in the knowledge graph to be created. To get an overview
 of the structure of our project, we can run the following command via the
-driver:</p>
+interface:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Visualising the ontology hierarchy</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">biocypher</span> <span class="kn">import</span> <span class="n">BioCypher</span>
@@ -404,11 +405,15 @@ schema configuration, and the ontology class name is given in the <code class="d
 field. The name given in the <code class="docutils literal notranslate"><span class="pre">synonym_for</span></code> field must be an existing class name
 (in this example, a real Biolink class).</p>
 </div>
-<p>We can visualise the structure of the ontology as we have before using
-<code class="docutils literal notranslate"><span class="pre">driver.show_ontology_structure()</span></code>, and we observe that the <code class="docutils literal notranslate"><span class="pre">complex</span></code> class is
-now a synonym for the <code class="docutils literal notranslate"><span class="pre">macromolecular</span> <span class="pre">complex</span></code> class (their being synonyms
-indicated as an equals sign):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Showing ontology structure based on https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model.owl.ttl
+<p>We can visualise the structure of the ontology as we have before. Instead of
+using <code class="docutils literal notranslate"><span class="pre">bc.show_ontology_structure()</span></code> however, we can use the <code class="docutils literal notranslate"><span class="pre">bc.summary()</span></code>
+method to show the structure and simultaneously check for duplicates and missing
+labels. This is useful for debugging purposes, and we can see that the import
+was completed without encountering duplicates, and all labels in the input are
+accounted for in the schema configuration. We also observe in the tree that the
+<code class="docutils literal notranslate"><span class="pre">complex</span></code> class is now a synonym for the <code class="docutils literal notranslate"><span class="pre">macromolecular</span> <span class="pre">complex</span></code> class (their
+being synonyms indicated as an equals sign):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Showing ontology structure based on https://raw.githubusercontent.com/biolink/biolink-model/v3.2.1/biolink-model.owl.ttl
 entity
 ├── association
 │   └── gene to gene association
@@ -451,14 +456,21 @@ concept.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>If the concept does not exist in the head ontology, but is a feasible child
-class of an existing concept, the above extension functionalities can be used to
-introduce the concept and then fuse the tail ontology there.</p>
+class of an existing concept, you can set the <code class="docutils literal notranslate"><span class="pre">merge_nodes</span></code> option to <code class="docutils literal notranslate"><span class="pre">False</span></code> to
+prevent the merging of head and tail join nodes, but instead adding the tail
+join node as a child of the head join node you have specified. For instance, in
+the example below, we merge <code class="docutils literal notranslate"><span class="pre">sequence</span> <span class="pre">variant</span></code> from Biolink and
+<code class="docutils literal notranslate"><span class="pre">sequence_variant</span></code> from Sequence Ontology into a single node, but we add the
+MONDO subtree of <code class="docutils literal notranslate"><span class="pre">human</span> <span class="pre">disease</span></code> as a child of <code class="docutils literal notranslate"><span class="pre">disease</span></code> in Biolink.</p>
+<p><code class="docutils literal notranslate"><span class="pre">merge_nodes</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> by default, so there is no need to specify it in
+the configuration file if you want to merge the nodes.</p>
 </div>
 <p>The ontology adapter also accepts any arbitrary “head ontology” as a base
 ontology, but if none is provided, the Biolink model is used as the default head
-ontology. These options can be provided to the BioCypher driver as parameters,
-or as options in the BioCypher configuration file, which is the preferred method
-for transparency reasons:</p>
+ontology. However, it is strongly recommended to explicitly specify your desired
+ontology version here. These options can be provided to the BioCypher interface
+as parameters, or as options in the BioCypher configuration file, which is the
+preferred method for transparency reasons:</p>
 <div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-text">Using biocypher_config.yaml</span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
@@ -467,7 +479,7 @@ for transparency reasons:</p>
 
 <span class="w">  </span><span class="c1"># Ontology configuration</span>
 <span class="w">  </span><span class="nt">head_ontology</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/biolink/biolink-model/raw/master/biolink-model.owl.ttl</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/biolink/biolink-model/raw/v3.2.1/biolink-model.owl.ttl</span>
 <span class="w">    </span><span class="nt">root_node</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity</span>
 
 <span class="w">  </span><span class="nt">tail_ontologies</span><span class="p">:</span>
@@ -480,7 +492,8 @@ for transparency reasons:</p>
 <span class="w">    </span><span class="nt">mondo</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://purl.obolibrary.org/obo/mondo.owl</span>
 <span class="w">      </span><span class="nt">head_join_node</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">disease</span>
-<span class="w">      </span><span class="nt">tail_join_node</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">disease</span>
+<span class="w">      </span><span class="nt">tail_join_node</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">human disease</span>
+<span class="w">      </span><span class="nt">merge_nodes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="c1"># ...</span>
 </pre></div>
@@ -498,7 +511,7 @@ as follows at BioCypher interface instantiation:</p>
     <span class="c1"># ...</span>
 
     <span class="n">head_ontology</span><span class="o">=</span><span class="p">{</span>
-      <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://github.com/biolink/biolink-model/raw/master/biolink-model.owl.ttl&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://github.com/biolink/biolink-model/raw/v3.2.1/biolink-model.owl.ttl&#39;</span><span class="p">,</span>
       <span class="s1">&#39;root_node&#39;</span><span class="p">:</span> <span class="s1">&#39;entity&#39;</span><span class="p">,</span>
     <span class="p">},</span>
 
@@ -513,7 +526,8 @@ as follows at BioCypher interface instantiation:</p>
             <span class="p">{</span>
                 <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;test/mondo.owl&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;head_join_node&#39;</span><span class="p">:</span> <span class="s1">&#39;disease&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;tail_join_node&#39;</span><span class="p">:</span> <span class="s1">&#39;disease&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;tail_join_node&#39;</span><span class="p">:</span> <span class="s1">&#39;human disease&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;merge_nodes&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
             <span class="p">}</span>
     <span class="p">},</span>
 
